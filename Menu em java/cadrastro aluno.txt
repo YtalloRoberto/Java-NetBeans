@@ -1,0 +1,47 @@
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.GridLayout;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class CadastroAluno extends JFrame {
+private JMenuBar menuBar = new JMenuBar();
+private JMenu menuAluno = new JMenu("Aluno");
+private JMenuItem menuitemCadastrar = new JMenuItem("Cadastrar");
+private JMenuItem menuitemSair = new JMenuItem("Sair");
+private JLabel labelNome = new JLabel("Nome");
+private JLabel labelEmail = new JLabel("E-mail");
+private JLabel labelTelefone = new JLabel("Telefone");
+private JTextField textNome = new JTextField();
+private JTextField textEmail = new JTextField();
+private JTextField textTelefone = new JTextField();
+private JButton buttonCadastrar = new JButton("Cadastrar");
+
+public CadastroAluno() {
+GridLayout layout = new GridLayout(6,4);
+this.setLayout(layout);
+this.add(labelNome);
+this.add(textNome);
+this.add(labelEmail);
+this.add(textEmail);
+this.add(labelTelefone);
+this.add(textTelefone);
+this.add(buttonCadastrar);
+menuAluno.add(menuitemCadastrar);
+menuAluno.addSeparator();
+menuAluno.add(menuitemSair);
+menuBar.add(menuAluno);
+this.setJMenuBar(menuBar);
+this.pack();
+this.setVisible(true);
+}
+
+public static void main(String args[]) {
+    new FramePrincipal();
+}
+}

@@ -1,0 +1,68 @@
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+
+public class FramePrincipal extends JFrame {
+
+    private JMenuBar menuBar = new JMenuBar();
+    private JMenu menuAluno = new JMenu("Aluno");
+    private JMenuItem menuitemCadastrar = new JMenuItem("Cadastrar");
+    private JMenuItem menuitemImprensadinho = new JMenuItem("Imprensadinho");
+    private JMenuItem menuitemConversorFormato = new JMenuItem("Conversor Formato");
+    private JMenuItem menuitemEquacao2Grau = new JMenuItem("Equaçâo 2 Grau");
+    private JMenuItem menuitemSair = new JMenuItem("Sair");
+    Listener listener = new Listener();
+
+    public FramePrincipal() {
+        menuitemCadastrar.addActionListener(listener);
+        menuitemConversorFormato.addActionListener(listener);
+        menuitemEquacao2Grau.addActionListener(listener);
+        menuitemImprensadinho.addActionListener(listener);
+        menuitemSair.addActionListener(listener);
+        this.setTitle("Sistema acadêmico");
+        GridLayout layout = new GridLayout(6, 4);
+        this.setLayout(layout);
+        menuAluno.add(menuitemCadastrar);
+        menuAluno.add(menuitemImprensadinho);
+        menuAluno.add(menuitemConversorFormato);
+        menuAluno.add(menuitemEquacao2Grau);
+        menuAluno.addSeparator();
+        menuAluno.add(menuitemSair);
+        menuBar.add(menuAluno);
+        this.setJMenuBar(menuBar);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setExtendedState(MAXIMIZED_BOTH);
+        this.setVisible(true);
+
+    }
+
+    private class Listener implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+
+            if (e.getSource() == menuitemCadastrar) {
+                new CadastroAluno();
+            }
+            if (e.getSource() == menuitemSair) {
+                System.exit(0);
+            }if (e.getSource() == menuitemImprensadinho) { 
+                new Imprensadinho();
+            }if (e.getSource() == menuitemConversorFormato) { 
+              new ConversorFormato();
+            }if (e.getSource() == menuitemEquacao2Grau) { 
+               new Equacao2Grau();
+            }
+        }}
+
+    public static void main(String args[]) {
+        new FramePrincipal();
+
+    }
+}
